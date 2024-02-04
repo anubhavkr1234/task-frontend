@@ -1,8 +1,7 @@
+import React from "react";
+import "./TaskStatusCard.css";
 
-import React from 'react';
-import "./TaskStatusCard.css"
-
-const TaskStatusCard = ({ count,message }) => {
+const TaskStatusCard = ({ count, message }) => {
   return (
     <div className="card">
       <h3>{message}</h3>

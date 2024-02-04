@@ -1,16 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = 'http://localhost:3001'; // Your backend API base URL
+const BASE_URL = "https://task-backend-mc8d.onrender.com";
 
 const axiosInstance = axios.create({
-  baseURL: BASE_URL
+  baseURL: BASE_URL,
 });
 
-// // Add a request interceptor
 axiosInstance.interceptors.request.use(
   function (config) {
     // Get the token from localStorage or wherever you store it
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     // If the token exists, add it to the Authorization header
     if (token) {
@@ -20,7 +19,6 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   function (error) {
-    // Do something with request error
     return Promise.reject(error);
   }
 );
@@ -28,21 +26,21 @@ axiosInstance.interceptors.request.use(
 // Function to fetch tasks from the backend
 export const getTasks = async () => {
   try {
-    const response = await axiosInstance.get('/tasks');
+    const response = await axiosInstance.get("/tasks");
     return response.data;
   } catch (error) {
-    throw new Error('Error fetching tasks:', error);
+    throw new Error("Error fetching tasks:", error);
   }
 };
 
 // Function to add a new task to the backend
 export const addTask = async (taskData) => {
   try {
-    console.log({taskData})
-    const response = await axiosInstance.post('/tasks', taskData);
+    console.log({ taskData });
+    const response = await axiosInstance.post("/tasks", taskData);
     return response.data;
   } catch (error) {
-    throw new Error('Error adding task:', error);
+    throw new Error("Error adding task:", error);
   }
 };
 
@@ -54,8 +52,8 @@ export const deleteTask = async (task) => {
     const updatedTasks = await getTasks();
     return updatedTasks;
   } catch (error) {
-    console.error('Error deleting task:', error);
-    throw new Error('Error deleting task:', error);
+    console.error("Error deleting task:", error);
+    throw new Error("Error deleting task:", error);
   }
 };
 
@@ -78,7 +76,7 @@ export const completeTask = async (task) => {
     const updatedTasks = await getTasks();
     return updatedTasks;
   } catch (error) {
-    console.error('Error completing task:', error);
+    console.error("Error completing task:", error);
   }
 };
 
@@ -89,29 +87,58 @@ export const editTask = async (task) => {
       title: task.title, // You can include other task fields here
       description: task.description,
       dueDate: task.dueDate,
-      priority: task.priority // Assuming you have an input field for priority change
+      priority: task.priority, // Assuming you have an input field for priority change
     });
     const updatedTasks = await getTasks();
     return updatedTasks;
     // Fetch updated task list after successful edit
   } catch (error) {
-    console.error('Error editing task:', error);
+    console.error("Error editing task:", error);
   }
 };
 
-export const priorityChange = async (task,priority) => {
+export const priorityChange = async (task, priority) => {
   try {
     // Update the task priority locally first
     const updatedTask = { ...task, priority: parseInt(priority) };
     // Make a PATCH request to update the task with the new priority
-    await axiosInstance.patch(`/tasks/priority/${task._id}`, { priority: updatedTask.priority });
+    await axiosInstance.patch(`/tasks/priority/${task._id}`, {
+      priority: updatedTask.priority,
+    });
     const updatedTasks = await getTasks();
     return updatedTasks;
     // Fetch updated task list after successful priority change
   } catch (error) {
-    console.error('Error changing priority:', error);
+    console.error("Error changing priority:", error);
   }
 };
 
-// Export the modified axios instance
+// register user
+export const registerUser = async (name, email, password) => {
+  try {
+    const response = await axiosInstance.post("/register", {
+      name,
+      email,
+      password,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error registering user:", error);
+    throw new Error("Error registering user:", error);
+  }
+};
+
+// login user
+export const loginUser = async (email, password) => {
+  try {
+    const response = await axiosInstance.post("/login", { email, password });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error logging in:", error);
+    throw new Error("Error logging in:", error);
+  }
+};
+
 export default axiosInstance;

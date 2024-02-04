@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import "./TaskForm.css"
-import { useUserContext } from '../../../App';
+import React, { useState, useEffect } from "react";
+import { useUserContext } from "../../../App";
+import "./TaskForm.css";
 
 const TaskForm = ({ onSubmit, onCancel, task = null }) => {
- const {emailId}=useUserContext();
+  const { emailId } = useUserContext();
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    dueDate: '',
-    priority: '',
-    createdAt:'',
-    user:emailId,
-    _id:''
+    title: "",
+    description: "",
+    dueDate: "",
+    priority: "",
+    createdAt: "",
+    user: emailId,
+    _id: "",
   });
 
   useEffect(() => {
     if (task) {
       setFormData({
-        title: task.title || '',
-        description: task.description || '',
-        dueDate: task.dueDate || '',
-        priority: task.priority || '',
-        createdAt: task.createdAt|| '',
-        user: task.user|| '',
-        _id : task._id || ''
+        title: task.title || "",
+        description: task.description || "",
+        dueDate: task.dueDate || "",
+        priority: task.priority || "",
+        createdAt: task.createdAt || "",
+        user: task.user || "",
+        _id: task._id || "",
       });
     }
   }, [task]);
@@ -43,31 +43,51 @@ const TaskForm = ({ onSubmit, onCancel, task = null }) => {
 
   return (
     <div className="task-form">
-      <h2>{task ? 'Edit Task' : 'Create Task'}</h2>
+      <h2>{task ? "Edit Task" : "Create Task"}</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input type="text" name="title" value={formData.title} onChange={handleChange} />
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Description:
-          <textarea name="description" value={formData.description} onChange={handleChange} />
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Due Date:
-          <input type="date" name="dueDate" value={formData.dueDate} onChange={handleChange} />
+          <input
+            type="date"
+            name="dueDate"
+            value={formData.dueDate}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Priority:
-          <select name="priority" value={formData.priority} onChange={handleChange}>
+          <select
+            name="priority"
+            value={formData.priority}
+            onChange={handleChange}
+          >
             <option value="1">Priority 1</option>
             <option value="2">Priority 2</option>
             <option value="3">Priority 3</option>
           </select>
         </label>
         <div className="button-group">
-          <button type="submit">{task ? 'Update Task' : 'Create Task'}</button>
-          <button type="button" onClick={onCancel}>Cancel</button>
+          <button type="submit">{task ? "Update Task" : "Create Task"}</button>
+          <button type="button" onClick={onCancel}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

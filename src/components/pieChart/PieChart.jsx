@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
-import { useTaskContext } from '../../view/task/taskSystem';
+import React, { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
+import { useTaskContext } from "../../view/task/taskSystem";
 
-const PieChart = ({ completedTasksCount, pendingTasksCount, dueTasksCount }) => {
+const PieChart = ({
+  completedTasksCount,
+  pendingTasksCount,
+  dueTasksCount,
+}) => {
   const { tasks } = useTaskContext();
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
@@ -10,23 +14,25 @@ const PieChart = ({ completedTasksCount, pendingTasksCount, dueTasksCount }) => 
   useEffect(() => {
     if (tasks && tasks.length > 0) {
       const data = {
-        labels: ['Completed Today', 'Pending Today ', 'All Due Tasks'],
-        datasets: [{
-          data: [completedTasksCount, pendingTasksCount, dueTasksCount],
-          backgroundColor: [
-            'rgba(75, 002, 076, 0.6)',
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 167, 0.6)'
-          ]
-        }]
+        labels: ["Completed Today", "Pending Today ", "All Due Tasks"],
+        datasets: [
+          {
+            data: [completedTasksCount, pendingTasksCount, dueTasksCount],
+            backgroundColor: [
+              "rgba(75, 002, 076, 0.6)",
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(54, 162, 167, 0.6)",
+            ],
+          },
+        ],
       };
 
       const options = {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       };
 
-      const ctx = chartRef.current.getContext('2d');
+      const ctx = chartRef.current.getContext("2d");
 
       // Destroy existing chart if it exists
       if (chartInstanceRef.current) {
@@ -35,9 +41,9 @@ const PieChart = ({ completedTasksCount, pendingTasksCount, dueTasksCount }) => 
 
       // Create new chart instance
       chartInstanceRef.current = new Chart(ctx, {
-        type: 'pie',
+        type: "pie",
         data: data,
-        options: options
+        options: options,
       });
     }
   }, [tasks, completedTasksCount, pendingTasksCount, dueTasksCount]);
@@ -53,12 +59,12 @@ const PieChart = ({ completedTasksCount, pendingTasksCount, dueTasksCount }) => 
   // Call resizeCanvas when component mounts and on window resize
   useEffect(() => {
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    return () => window.removeEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
+    return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: "100%", height: "100%" }}>
       <canvas ref={chartRef}></canvas>
     </div>
   );

@@ -1,67 +1,66 @@
 .task-form {
-    position: absolute;
-    top: 50%; /* Position the form at the vertical center */
-    left: 50%; /* Position the form at the horizontal center */
-    transform: translate(-50%, -50%); /* Center the form precisely */
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    z-index: 999; 
-  }
-  
-  .task-form h2 {
-    margin-bottom: 20px;
-  }
-  
-  .task-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .task-form input[type="text"],
-  .task-form input[type="date"],
-  .task-form select,
-  .task-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .task-form textarea {
-    height: 100px;
-  }
-  
-  .task-form button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .task-form .button-group {
-    margin-top: 20px;
-  }
-  
-  .task-form button[type="submit"] {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .task-form button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  .task-form button[type="button"] {
-    background-color: #f44336;
-    color: #fff;
-  }
-  
-  .task-form button[type="button"]:hover {
-    background-color: #d32f2f;
-  }
-  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  z-index: 999;
+}
+
+.task-form h2 {
+  margin-bottom: 20px;
+}
+
+.task-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form select,
+.task-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-form textarea {
+  height: 100px;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-form .button-group {
+  margin-top: 20px;
+}
+
+.task-form button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.task-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.task-form button[type="button"] {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.task-form button[type="button"]:hover {
+  background-color: #d32f2f;
+}

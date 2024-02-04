@@ -1,78 +1,76 @@
 .dashboard {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    
-  }
-  
-  .card-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    flex-direction: row;
-    margin-bottom: 30px;
-  }
-  
-  .task-list {
-    margin-top: 20px;
-  }
-  
-  .task-list-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .task-list-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .task-list-item-title {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .task-list-item-description {
-    font-size: 14px;
-  }
-  
-  .task-list-item-date {
-    font-size: 14px;
-  }
-  
-  .task-list-item-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .task-list-item-action {
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .task-list-item-edit-icon,
-  .task-list-item-delete-icon {
-    color: #007bff;
-  }
-  
-  .task-list-item-complete-icon {
-    color: #28a745;
-  }
-  
-  .task-list-item-priority-1 {
-    color: red;
-  }
-  
-  .task-list-item-priority-2 {
-    color: orange;
-  }
-  
-  .task-list-item-priority-3 {
-    color: green;
-  }
-  
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task-list-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.task-list-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.task-list-item-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.task-list-item-description {
+  font-size: 14px;
+}
+
+.task-list-item-date {
+  font-size: 14px;
+}
+
+.task-list-item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-list-item-action {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.task-list-item-edit-icon,
+.task-list-item-delete-icon {
+  color: #007bff;
+}
+
+.task-list-item-complete-icon {
+  color: #28a745;
+}
+
+.task-list-item-priority-1 {
+  color: red;
+}
+
+.task-list-item-priority-2 {
+  color: orange;
+}
+
+.task-list-item-priority-3 {
+  color: green;
+}
