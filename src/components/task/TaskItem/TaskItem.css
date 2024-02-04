@@ -1,0 +1,22 @@
+.task-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .task-item h3 {
+    margin-top: 0;
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+  }
+  
+  .action-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
