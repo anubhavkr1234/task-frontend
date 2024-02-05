@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import Home from "./view/home/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 const UserContext = createContext();
 export const useUserContext = () => useContext(UserContext);
@@ -35,7 +35,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route
               path="/home"
-              element={isAuthenticated ? <Home /> : <Login />}
+              element={isAuthenticated ? <Home /> : <Navigate to="/login" />}
             />
           </Routes>
         </BrowserRouter>
